@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
 });
 
-
 eventListener = () => {
     anserSelecter.addEventListener('click', validateAnswer);
 }
@@ -38,8 +37,6 @@ loadQuestionsApi = function() {
 
 const displayQuestion = function(data) {
 
-    //console.log(data);
-
     const diffLevel = document.querySelector('.level');
 
     if (data[0].difficulty === "hard") {
@@ -57,8 +54,7 @@ const displayQuestion = function(data) {
     questionHTML.innerHTML = `
         <h2 class="text-center">
           ${data[0].question}
-        </h2>
-        `;
+        </h2> `;
     //add category to the class
     const category = document.querySelector(".category");
     category.innerHTML = `
@@ -88,7 +84,10 @@ const displayQuestion = function(data) {
         //select the answers on the page
         answershTML.onclick = selectAnswers;
         answerDiv.appendChild(answershTML);
+
+
     });
+
     questionHTML.appendChild(answerDiv);
     document.querySelector('#app').appendChild(questionHTML);
 }
@@ -136,18 +135,14 @@ const checkCorrectAnswer = () => {
         correctAnswerCount++;
 
     } else {
-
         incorrectAnswerCount++;
         console.log(incorrectAnswerCount);
     }
 
     //save record into the 
-
     saveAnswerlocalstorage();
-
     //remove the previous object and reload api function again
     const apps = document.querySelector("#app .col-12");
-
     if (apps) {
         apps.remove();
     }
