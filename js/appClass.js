@@ -10,5 +10,4 @@ class Quiz {
         const response = await request.json();
         return { response };
     }
-
 }

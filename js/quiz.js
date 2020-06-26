@@ -3,7 +3,7 @@ let responses = "";
 let correctAnswer = "";
 let incorrectAnswer = [];
 const anserSelecter = document.querySelector('#ans-checker');
-let reset_form = document.querySelector(".reset_form");
+let reset_form = document.querySelector("#reset_form");
 
 let correctAnswerCount = (localStorage.getItem('quiz_correct_answ')) ? localStorage.getItem('quiz_correct_answ') : 0,
     incorrectAnswerCount = (localStorage.getItem('quiz_incorrect_answ')) ? localStorage.getItem('quiz_incorrect_answ') : 0;
@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
     loadQuestionsApi();
     eventListener();
+
+    /**
+     * Reset the forms 
+     * 
+     */
+    reset_form.addEventListener('click', function() {
+        resetForms();
+    });
 
 });
 
@@ -85,7 +93,6 @@ const displayQuestion = function(data) {
         answershTML.onclick = selectAnswers;
         answerDiv.appendChild(answershTML);
 
-
     });
 
     questionHTML.appendChild(answerDiv);
@@ -146,11 +153,8 @@ const checkCorrectAnswer = () => {
     if (apps) {
         apps.remove();
     }
-
     //load api questions 
     loadQuestionsApi();
-    resetForms();
-
 }
 
 const saveAnswerlocalstorage = () => {
@@ -159,6 +163,7 @@ const saveAnswerlocalstorage = () => {
 }
 
 const resetForms = () => {
+
     localStorage.setItem("quiz_correct_answ", 0);
     localStorage.setItem("quiz_incorrect_answ", 0);
 
