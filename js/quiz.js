@@ -18,8 +18,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     eventListener();
 
     /**
-     * Reset the forms 
-     * 
+     * Reset the forms
      */
     reset_form.addEventListener('click', function() {
         resetForms();
