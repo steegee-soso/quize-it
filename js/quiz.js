@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function(e) {
         document.querySelector(".hidden").remove();
     }, 1000);
 
+    alert("added alert to test the page");
+
     loadQuestionsApi();
     eventListener();
 
