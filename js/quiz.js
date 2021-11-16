@@ -10,6 +10,8 @@ let correctAnswerCount = (localStorage.getItem('quiz_correct_answ')) ? localStor
 
 document.addEventListener("DOMContentLoaded", function(e) {
 
+    alert("i'm testing the app");
+
     setTimeout(function(e) {
         document.querySelector(".hidden").remove();
     }, 1000);
